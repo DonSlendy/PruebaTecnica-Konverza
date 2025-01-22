@@ -1,0 +1,16 @@
+::ng-deep body{
+    background-color: rgb(204, 204, 238);
+}
+
+.table{
+    text-align: center;
+}
+
+button{
+    margin: 5px;
+}
+
+span{
+    color: #e00016;
+    font-weight: bold;
+}

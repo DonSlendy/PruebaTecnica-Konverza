@@ -1,0 +1,20 @@
+::ng-deep body {
+    background-color: rgb(44, 51, 69);
+}
+
+.container {
+    min-width: 400px;
+    width: 500px;
+    padding: 40px;
+    margin: 40px auto;
+    background-color: rgb(156, 178, 187);
+    border-radius: 25px;
+    border:2px,solid,#39e5f6;
+}
+
+img{
+    margin: 10px auto 0 auto;
+    min-width: 400px;
+    width: 500px;
+    display: block;
+}

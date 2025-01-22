@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+
+<h1>Formulario para {{mensaje}} un producto</h1>
+<br>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <form [formGroup]="productosForm">
+
+                <input type="hidden" name="usuario_id" formControlName="usuario_id">
+                <input type="hidden" name="id" formsControlName="id">
+
+                <div class="form-floating mb-3">
+                    <input name="nombre" id="nombre" type="text" class="form-control" id="floatingNombre"
+                        placeholder="Nombre del producto" formControlName="nombre">
+                    <label for="floatingInput">Nombre del producto</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input name="descrip" id="descrip" type="text" class="form-control" id="floatingDescripcion"
+                        placeholder="Descripcion de un producto" formControlName="descrip">
+                    <label for="floatingDescripcion">Breve descripción</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input name="precio" id="precio" type="number" class="form-control" id="floatingPrecio"
+                        placeholder="Precio de un producto" formControlName="precio">
+                    <label for="floatingPrecio">Precio del producto</label>
+                </div>
+                <div class="form-floating mb-3" [hidden]="!booleanMensaje">
+                    <input name="cantidad" id="cantidad" type="number" class="form-control" id="floatingCantidad"
+                        placeholder="12345" formControlName="cantidad">
+                    <label for="floatingCantidad">Cantidad inicial</label>
+                </div>
+                <div *ngIf="errorMessage" class="alert alert-danger"> {{ errorMessage }} </div>
+                <!--Bloque del botón dependiendo de si es agregar nuevo o modificar-->
+                <div>
+                    <button type="submit" (click)="enviarProducto()" class="btn btn-success w-100"
+                        *ngIf="booleanMensaje else elseblock">
+                        Agregar nuevo producto
+                    </button>
+                </div>
+                <ng-template #elseblock>
+                    <button pButton type="submit" (click)="modificarProducto()" class="btn btn-warning w-100">
+                        Modificar el producto
+                    </button>
+                </ng-template>
+            </form>
+        </div>
+    </div>
+</div>

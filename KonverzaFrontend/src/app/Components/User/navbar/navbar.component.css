@@ -1,0 +1,13 @@
+.navbar{
+    margin-bottom: 25px;
+}
+
+.nav-item{
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+li{
+    cursor: pointer;
+}

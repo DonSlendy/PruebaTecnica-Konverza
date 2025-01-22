@@ -1,0 +1,13 @@
+::ng-deep body{
+    background-color: #ccccee;
+}
+
+form{
+    background-color: #f8f9fa;
+    padding: 30px;
+    border: 2px solid #dee2e6;
+}
+
+h1{
+    text-align: center;
+}

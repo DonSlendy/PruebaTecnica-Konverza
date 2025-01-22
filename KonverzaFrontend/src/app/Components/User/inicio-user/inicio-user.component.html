@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+
+        <div class="col-12 mb-3">
+            <input type="text" class="form-control" placeholder="Buscar..." [(ngModel)]="searchText"
+                (input)="filtrarDatos()" />
+        </div>
+
+        <div class="col-12">
+            <table class="table table-hover table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Imagen</th>
+                        <th>Operaciones</th>
+                    </tr>
+                </thead>
+                <tbody class="">
+                    <tr *ngFor="let item of datosFiltrados; trackBy: trackByIndex">
+                        <th>{{item.id}}</th>
+                        <th>{{item.nombre}}</th>
+                        <th>{{item.descrip}}</th>
+                        <th>${{item.precio}}</th>
+                        <th>{{item.cantidad}}</th>
+                        <th>Imagen, prox</th>
+                        <th>
+                            <button type="button" class="btn btn-warning"
+                                [routerLink]="['/ModificarProducto/',item.id]">
+                                Modificar
+                            </button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#modalEliminar" (click)="datosParaModal(item.id)">
+                                Eliminar
+                            </button>
+                        </th>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">¡Cuidado! Vas a eliminar un producto</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Estás seguro de desear borrar el producto "<span>{{productoNobre}}</span>"? Este cambio será
+                permanente.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="eliminarID()"
+                    data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-danger" (click)="eliminarProducto()">ELIMINAR</button>
+            </div>
+        </div>
+    </div>
+</div>

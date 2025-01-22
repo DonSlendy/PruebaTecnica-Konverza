@@ -1,0 +1,24 @@
+<img src="./img/logo-konverza.png" alt="LogoKonverza">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12">
+
+            <form [formGroup]="loginForm">
+                <div class="form-floating mb-3">
+                    <input name="email" id="email" type="email" class="form-control" id="floatingInput"
+                        placeholder="name@example.com" formControlName="user">
+                    <label for="floatingInput">Ingresa tu correo electrónico</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input name="password" id="password" type="password" class="form-control" id="floatingPassword"
+                        placeholder="Password" formControlName="password">
+                    <label for="floatingPassword">Ingresa tu contraseña</label>
+                </div>
+                <div *ngIf="errorMessage" class="alert alert-danger"> {{ errorMessage }} </div>
+                <div>
+                    <button type="submit" class="btn btn-primary w-100" (click)="submitUser()">Ingresar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

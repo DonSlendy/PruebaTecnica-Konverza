@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" [routerLink]="['/InicioUser']">
+            <img class="rounded-circle img-fluid" src="./img/konv.jpg" alt="Bootstrap" width="60" height="60" >
+        </a>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" [routerLink]="['/InicioUser']">Ver productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" [routerLink]="['/AgregarProducto']">Agregar producto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" [routerLink]="['/MovimientosProducto']">Movimientos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" (click)="cerrarSesion()">Cerrar Sesión</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

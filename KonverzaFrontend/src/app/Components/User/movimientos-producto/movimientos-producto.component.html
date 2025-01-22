@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+
+<h1>Formulario para el movimiento de los productos</h1>
+<br>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <form [formGroup]="movimientosForm">
+                <!-- Selección de producto -->
+                <div class="form-floating mb-3">
+                    <select class="form-select" id="productoSelect" placeholder="Seleccione el producto"
+                        formControlName="producto">
+                        <option value="" disabled selected>Seleccione un producto</option>
+                        <option *ngFor="let item of datosList" [value]="item.id">{{ item.nombre }}</option>
+                    </select>
+                    <label for="productoSelect">Seleccione el producto</label>
+                </div>
+
+                <!-- Tipo de movimiento -->
+                <div class="form-floating mb-3">
+                    <select class="form-select" id="movimientoSelect" formControlName="movimiento">
+                        <option value="Agregar">Agregar nuevos productos</option>
+                        <option value="Vender">Venta de producto</option>
+                        <option value="Retirar">Retiro de producto</option>
+                    </select>
+                    <label for="movimientoSelect">Tipo de movimiento</label>
+                </div>
+
+                <!-- Cantidad -->
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="cantidadInput" placeholder="12345"
+                        formControlName="cantidad">
+                    <label for="cantidadInput">Cantidad a manipular</label>
+                </div>
+
+                <!-- Botón de envío -->
+                <div>
+                    <button type="button" class="btn btn-success w-100" (click)="enviarProducto()">
+                        Realizar movimiento
+                    </button>
+                </div>
+            </form>
+            <br>
+            <table class="table table-hover table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Acción realizada</th>
+                        <th>Ganancia generada</th>
+                    </tr>
+                </thead>
+                <tbody class="">
+                    <tr *ngFor="let item of datosTable">
+                        <th>{{item.id}}</th>
+                        <th>{{item.accion}}</th>
+                        <th>{{item.ganancia}}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
